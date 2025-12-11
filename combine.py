@@ -4,10 +4,10 @@ print("🚀 Starting spam dataset merging...")
 
 # ----- Load datasets -----
 try:
-    df_cleaned = pd.read_csv("cleaned_spam_dataset.csv")
-    print("✔ Loaded cleaned_spam_dataset.csv")
+    df_cleaned = pd.read_csv("spam_dataset.csv")
+    print("✔ Loaded spam_dataset.csv")
 except:
-    print("❌ Could not load cleaned_spam_dataset.csv")
+    print("❌ Could not load spam_dataset.csv")
     exit()
 
 try:
