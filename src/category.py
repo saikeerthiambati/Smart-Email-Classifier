@@ -1,13 +1,17 @@
 import pandas as pd
 import re
 
-print("📁 Adding category...")
+print("📁 Adding category and urgency...")
 
-df = pd.read_csv(r"data/Clean Datasets/spam_dataset_cleaned_encoded.csv")
+# =========================
+# Load datasets
+# =========================
+df = pd.read_csv(r"../data/Clean Datasets/spam_dataset_cleaned_encoded.csv")
+email = pd.read_csv(r"../data/Raw Datasets/emailclass.csv")
 
-email = pd.read_csv(r"data/Raw Datasets/emailclass.csv")
-
-# clean email text too (same cleaning!)
+# =========================
+# Text cleaning function
+# =========================
 def clean(text):
     text = str(text).lower()
     text = re.sub(r"http\S+|www.\S+", "", text)
@@ -16,23 +20,85 @@ def clean(text):
     text = re.sub(r'\s+', ' ', text).strip()
     return text
 
+# Clean email text
 email['clean_text'] = email['text'].apply(clean)
 
-# rename type -> category
+# Rename type → category
 email = email.rename(columns={'type': 'category'})
 
-# merge on clean_text instead of text
-df = df.merge(email[['clean_text', 'category']], on='clean_text', how='left')
+# =========================
+# Merge category
+# =========================
+df = df.merge(
+    email[['clean_text', 'category']],
+    on='clean_text',
+    how='left'
+)
 
-# for spam emails, set category as spam
-df.loc[df['label']==1, 'category'] = 'spam'
+# For spam emails, force category = spam
+df.loc[df['label'] == 1, 'category'] = 'spam'
 
-# fill missing
+# Fill missing categories
 df['category'] = df['category'].fillna('general')
 
-df.to_csv("spam_with_category.csv", index=False)
+# =========================
+# Urgency Detection Logic
+# =========================
+def assign_urgency(text, category):
+    text = str(text).lower()
 
-print("✔ Category fixed using clean_text")
+    # Base urgency from category
+    if category.lower() == "complaint":
+        urgency = "High"
+    elif category.lower() == "request":
+        urgency = "Medium"
+    else:
+        urgency = "Low"
+
+    # Keyword-based escalation
+    high_keywords = [
+        "urgent", "asap", "immediately",
+        "not working", "down", "failed",
+        "error", "critical"
+    ]
+
+    medium_keywords = [
+        "please check", "follow up",
+        "by today", "by tomorrow"
+    ]
+
+    for word in high_keywords:
+        if word in text:
+            return "High"
+
+    for word in medium_keywords:
+        if word in text and urgency != "High":
+            return "Medium"
+
+    return urgency
+
+# Apply urgency
+df['urgency'] = df.apply(
+    lambda row: assign_urgency(row['clean_text'], row['category']),
+    axis=1
+)
+
+# =========================
+# Save final dataset
+# =========================
+output_path = "../data/Clean Datasets/spam_with_category_and_urgency.csv"
+df.to_csv(output_path, index=False)
+
+# =========================
+# Verification
+# =========================
+print("✔ Category & urgency added successfully!")
+
+print("\n📊 Category Distribution:")
 print(df['category'].value_counts())
-print("🎉 Saved as spam_with_category.csv")
-print("✅ Category addition complete!")
+
+print("\n📊 Urgency Distribution:")
+print(df['urgency'].value_counts())
+
+print(f"\n🎉 Saved as {output_path}")
+print("✅ Process complete!")
