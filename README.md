@@ -18,20 +18,20 @@ Improve response prioritization and efficiency
 
 Prepare the foundation for enterprise-level deployment
 
+## Project Structure
+
+```text
 AI-Powered-Smart-Email-Classifier-for-Enterprises/
-│
 ├── data/
-│   ├── raw/                    # Original unprocessed datasets
-│   └── clean/                  # Cleaned & ML-ready datasets
-│
+│   ├── raw/
+│   └── clean/
 ├── src/
-│   ├── combine.py              # Dataset merging
-│   ├── category.py             # Text cleaning & category labeling
-│   ├── final_dataset.py        # Final dataset creation
-│   ├── priority.py             # Email priority assignment
-│   ├── spam_email.py           # Initial spam processing
-│   └── baseline_models.py      # Milestone 2 classification models
-│
+│   ├── combine.py
+│   ├── category.py
+│   ├── final_dataset.py
+│   ├── priority.py
+│   ├── spam_email.py
+│   └── baseline_models.py
 ├── README.md
 ├── LICENSE
 └── .gitignore
