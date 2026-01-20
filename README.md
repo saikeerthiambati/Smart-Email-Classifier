@@ -241,6 +241,11 @@ Spam / Non-spam status
 Email category
 Urgency / priority level
 
+## 🌐 Live Deployment
+
+🔗 **Streamlit Cloud URL:**  
+[https://<your-app-name>.streamlit.app](https://ai-powered-smart-email-classifier-for-enterprises-5cqdrgwdsftk.streamlit.app/)
+
 ## 👨‍💻 Author
 
 **Sai Keerthi Ambati**  
