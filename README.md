@@ -144,7 +144,7 @@ src/urgency_keywords.py
 src/priority.py
 ```
 
-##✅ Milestone 4 — Application Integration, Deployment & Documentation (Completed)
+## ✅ Milestone 4 — Application Integration, Deployment & Documentation (Completed)
 
 **Objective:**
 Build an interactive user interface, integrate all ML components, and deploy the system for real-world usage.
@@ -192,7 +192,8 @@ LICENSE — MIT License
 
 ---
 
-🚀 How to Run the Project
+## 🚀 How to Run the Project
+
 🔹 Prerequisites
 Python 3.8 or above
 pip package manager
