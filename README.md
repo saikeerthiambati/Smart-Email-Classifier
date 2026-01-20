@@ -20,26 +20,30 @@ This project focuses on building an AI-powered Smart Email Classifier that autom
 
 ---
 
-## 🗂 Project Structure
-
-```text
 AI-Powered-Smart-Email-Classifier-for-Enterprises/
-├── data/
-│   ├── raw/
-│   └── clean/
+│
+├── streamlit_app.py          # Main Streamlit application
+├── requirements.txt          # Project dependencies
+│
 ├── src/
-│   ├── combine.py
-│   ├── category.py
-│   ├── final_dataset.py
-│   ├── priority.py
 │   ├── spam_email.py
-│   └── baseline_models.py
-├── README.md
+│   ├── priority.py
+│   ├── urgency_model.py
+│   ├── urgency_keywords.py
+│   ├── baseline_models.py
+│   └── bert_category_model.py
+│
+├── data/
+│   ├── Raw Datasets/
+│   └── Clean Datasets/
+│
+├── dashboard/
+│   ├── static/
+│   └── templates/
+│
 ├── LICENSE
-└── .gitignore
-```
+└── README.md
 
----
 
 ## ✅ Milestone 1 — Data Collection & Preprocessing (Completed)
 
