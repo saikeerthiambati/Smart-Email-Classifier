@@ -2,7 +2,7 @@
 
 An AI-powered system designed to automatically clean, categorize, and analyze enterprise email datasets for intelligent spam detection, email categorization, and priority assignment using Natural Language Processing (NLP) and Machine Learning techniques.
 
----
+
 
 ## 📌 Project Overview
 
@@ -10,7 +10,6 @@ Enterprises receive thousands of emails daily related to customer complaints, se
 
 This project focuses on building an AI-powered Smart Email Classifier that automates email categorization and supports intelligent decision-making using NLP and Machine Learning models.
 
----
 ```
 ## 🎯 Project Objectives
 - Automate email classification into multiple categories  
