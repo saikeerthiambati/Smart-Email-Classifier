@@ -11,7 +11,7 @@ Enterprises receive thousands of emails daily related to customer complaints, se
 This project focuses on building an AI-powered Smart Email Classifier that automates email categorization and supports intelligent decision-making using NLP and Machine Learning models.
 
 ---
-
+```
 ## 🎯 Project Objectives
 - Automate email classification into multiple categories  
 - Reduce manual effort in email triaging  
@@ -44,7 +44,7 @@ AI-Powered-Smart-Email-Classifier-for-Enterprises/
 ├── LICENSE
 └── README.md
 
-
+```
 ## ✅ Milestone 1 — Data Collection & Preprocessing (Completed)
 
 **Objective:** Prepare a clean and labeled dataset for machine learning.
